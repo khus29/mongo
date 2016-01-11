@@ -1,0 +1,36 @@
+<html>
+	<head><title>Movies Management</title></head>
+	<body>
+		<h2>Movies List</h2>
+		<ul>
+			{% for movie in movies %}
+				<li><a href="http://www.imdb.com/title/{{moview.imdb}}">
+						{{movie.title}}
+					</a>
+					 released in year {{movie.year}}
+					 
+					 <a href="/delete?id={{movie._id}}">Delete</a>
+				</li>
+			{% else%}
+				No movies to display !
+			{% endfor %}
+		
+		</ul>
+		<h2>Add Movies</h2>
+		<form name="movie-form" method="post" action="add_movie" >
+			<div>
+				<label for="title">Movie Title: </label>
+				<input type="text" name="title" />
+			<div>
+			<div>
+				<label for="year">Movie Released in : </label>
+				<input type="text" name="year" />
+			</div>
+			<div>
+				<label for="imdb">IMDB: </label>
+				<input type="text" name="imdb" />
+			</div>
+			<input type="submit" value="submit" />
+		</form>
+	</body>
+</html>
